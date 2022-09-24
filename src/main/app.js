@@ -3,7 +3,9 @@ const express = require('express');
 const consign = require('consign');
 
 const app = express();
-consign({ cwd: './src/main' }).include('./config/app.config.js').into(app);
+consign({ cwd: './src/main', verbose: false })
+    .include('./config/app.config.js')
+    .into(app);
 
 const indexRouter = require('./routes');
 const usersRouter = require('./routes/users');
